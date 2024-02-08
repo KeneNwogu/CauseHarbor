@@ -1,0 +1,211 @@
+.container {
+    background-color: #fff;
+    padding: 29px 25px 45px 80px;
+  }
+  @media (max-width: 991px) {
+    .container {
+      padding: 0 20px;
+    }
+  }
+  .wrapper {
+    gap: 20px;
+    display: flex;
+  }
+  @media (max-width: 991px) {
+    .wrapper {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0px;
+    }
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 26%;
+    margin-left: 0px;
+  }
+  @media (max-width: 991px) {
+    .column {
+      width: 100%;
+    }
+  }
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  @media (max-width: 991px) {
+    .flex-column {
+      margin-top: 40px;
+    }
+  }
+  .logo {
+    justify-content: space-between;
+    display: flex;
+    gap: 3px;
+  }
+  .img {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 24px;
+    justify-content: center;
+    align-items: center;
+    margin: auto 0;
+  }
+  .logo-name {
+    color: var(--PURP-3, #7e21d4);
+    flex-grow: 1;
+    flex-basis: auto;
+    font: 300 24px Outfit, sans-serif;
+  }
+  .img-2 {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 83px;
+  }
+  @media (max-width: 991px) {
+    .img-2 {
+      margin-top: 40px;
+    }
+  }
+  .welcome-text {
+    color: #000;
+    margin-top: 138px;
+    font: 400 32px Outfit, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .welcome-text {
+      margin-top: 40px;
+    }
+  }
+  .signin-text{
+    color: #000;
+    margin-top: 14px;
+    white-space: nowrap;
+    font: 200 20px Outfit, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .signin-text {
+      white-space: initial;
+    }
+  }
+  .column-2 {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 74%;
+    margin-left: 20px;
+    min-height: 80vh;
+  }
+  @media (max-width: 991px) {
+    .column-2 {
+      width: 100%;
+    }
+  }
+
+  .column-wrapper {
+    border-radius: 32px;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    width: 100%;
+    padding: 34px 0;
+  }
+  @media (max-width: 991px) {
+    .column-wrapper {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  }
+
+
+
+
+
+
+
+
+  .column-wrapper {
+    justify-content: center;
+    align-items: center;
+    border-radius: 32px;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    width: 100%;
+    padding: 50px 80px;
+  }
+  @media (max-width: 991px) {
+    .column-wrapper {
+      max-width: 100%;
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+  }
+  .cta-text {
+    color: #000;
+    text-align: center;
+    margin-top: 160px;
+    font: 600 64px Outfit, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .cta-text {
+      max-width: 100%;
+      margin-top: 40px;
+      font-size: 40px;
+    }
+  }
+  .register {
+    display: flex;
+    margin-top: 48px;
+    gap: 20px;
+  }
+  @media (max-width: 991px) {
+    .register {
+      max-width: 100%;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+  }
+  .register-donor {
+    color: var(--PURP-3, #7e21d4);
+    white-space: nowrap;
+    border-radius: 48px;
+    border: 1px solid var(--PURP-3, #7e21d4);
+    background-color: #fff;
+    flex-grow: 1;
+    justify-content: center;
+    padding: 14px 32px;
+    font: 600 16px Plus Jakarta Sans, -apple-system, Roboto, Helvetica,
+      sans-serif;
+  }
+  @media (max-width: 991px) {
+    .register-donor {
+      white-space: initial;
+      padding: 0 20px;
+    }
+  }
+  .register-ngo {
+    color: #fff;
+    white-space: nowrap;
+    border-radius: 48px;
+    background-color: var(--PURP-3, #7e21d4);
+    flex-grow: 1;
+    justify-content: center;
+    padding: 14px 51px;
+    font: 600 16px Plus Jakarta Sans, -apple-system, Roboto, Helvetica,
+      sans-serif;
+  }
+  @media (max-width: 991px) {
+    .register-ngo {
+      white-space: initial;
+      padding: 0 20px;
+    }
+  }

@@ -18,6 +18,8 @@ import { DonorSignupComponent } from './donor-signup/donor-signup.component';
 import { NgoSignupComponent } from './ngo-signup/ngo-signup.component';
 import { NgoMissionComponent } from './ngo-mission/ngo-mission.component';
 import { NgoSignupSuccessComponent } from './ngo-signup-success/ngo-signup-success.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,10 @@ import { NgoSignupSuccessComponent } from './ngo-signup-success/ngo-signup-succe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

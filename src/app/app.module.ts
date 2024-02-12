@@ -18,10 +18,8 @@ import { DonorSignupComponent } from './donor-signup/donor-signup.component';
 import { NgoSignupComponent } from './ngo-signup/ngo-signup.component';
 import { NgoMissionComponent } from './ngo-mission/ngo-mission.component';
 import { NgoSignupSuccessComponent } from './ngo-signup-success/ngo-signup-success.component';
-import { DonorLandingComponent } from './dashboard/donor/donor-landing/donor-landing.component';
-import { library, icon } from '@fortawesome/fontawesome-svg-core';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -44,7 +42,10 @@ import { library, icon } from '@fortawesome/fontawesome-svg-core';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

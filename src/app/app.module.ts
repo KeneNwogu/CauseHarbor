@@ -20,6 +20,7 @@ import { NgoMissionComponent } from './ngo-mission/ngo-mission.component';
 import { NgoSignupSuccessComponent } from './ngo-signup-success/ngo-signup-success.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DonorLandingComponent } from './dashboard/donor/donor-landing/donor-landing.component';
 
 @NgModule({
   declarations: [

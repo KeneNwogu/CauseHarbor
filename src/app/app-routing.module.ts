@@ -7,6 +7,7 @@ import { DonorSignupComponent } from './donor-signup/donor-signup.component';
 import { NgoSignupComponent } from './ngo-signup/ngo-signup.component';
 import { NgoMissionComponent } from './ngo-mission/ngo-mission.component';
 import { NgoSignupSuccessComponent } from './ngo-signup-success/ngo-signup-success.component';
+import { DonorLandingComponent } from './dashboard/donor/donor-landing/donor-landing.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'signup/ngo', component: NgoSignupComponent },
   { path: 'ngo/verify', component: NgoMissionComponent },
   { path: 'signup/ngo/success', component: NgoSignupSuccessComponent },
+  { path: 'donor/dashboard', component: DonorLandingComponent },
 
 ];
 

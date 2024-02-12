@@ -25,20 +25,23 @@
             Do not have an account yet?
             <a routerLink="/signup" style="font-weight: 700">Sign up</a>
           </div>
-          <div class="fill-details">
-            <div class="fill-details-text">Fill in your verification code</div>
-            <input placeholder="E-mail" type="email" class="email"/>
-            <input type="password" placeholder="Password" class="password"/>
-            <input type="password" placeholder="Re-type Password" class="password"/>
-            
-        
-            <div class="tnc">
-              <div class="terms-agreement">
-                By continuing, you agree to the CauseHarbors to the terms of service and privacy policy.
+          <form [formGroup]="signUpForm" (ngSubmit)="submitForm()">
+            <div class="fill-details">
+              <div class="fill-details-text">Create your account</div>
+              <input placeholder="Username" type="text" class="email" formControlName="name" />
+              <input placeholder="E-mail" type="email" class="email" formControlName="email"/>
+              <input type="password" placeholder="Password" class="password" formControlName="password"/>
+              <input type="password" placeholder="Re-type Password" class="password" 
+              formControlName="confirmPassword"/>
+              <div class="tnc">
+                <div class="terms-agreement">
+                  By continuing, you agree to the CauseHarbors to the terms of service and privacy policy.
+                </div>
+
+                <button type="submit" class="signin">{{ formLoading ? "Submitting" : "Sign up" }}</button>
               </div>
-              <a routerLink="/sigin" class="signin">Sign Up</a>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

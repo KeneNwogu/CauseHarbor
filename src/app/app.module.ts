@@ -21,6 +21,7 @@ import { NgoSignupSuccessComponent } from './ngo-signup-success/ngo-signup-succe
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DonorLandingComponent } from './dashboard/donor/donor-landing/donor-landing.component';
+import { NgoSignupVerifyComponent } from './ngo-signup-verify/ngo-signup-verify.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { DonorLandingComponent } from './dashboard/donor/donor-landing/donor-lan
     NgoSignupComponent,
     NgoMissionComponent,
     NgoSignupSuccessComponent,
-    DonorLandingComponent
+    DonorLandingComponent,
+    NgoSignupVerifyComponent
   ],
   imports: [
     BrowserModule,

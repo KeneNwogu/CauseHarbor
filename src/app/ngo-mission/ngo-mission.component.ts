@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppStateService } from '../app-state.module';
 
 @Component({
   selector: 'app-ngo-mission',
@@ -11,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class NgoMissionComponent implements OnInit {
 
   constructor(private readonly http: HttpClient, private readonly router: Router,
-    private readonly route: ActivatedRoute) { }
+    private readonly route: ActivatedRoute, private readonly stateService: AppStateService) { }
 
   currentPage = 1
   submittingForm = false
@@ -76,8 +77,9 @@ export class NgoMissionComponent implements OnInit {
     this.http.post('https://cause-harbour.onrender.com/api/v1/organizations', form, {
       headers: { Authorization: `Bearer ${this.route.snapshot.queryParamMap.get('registrationToken')}`}
     }).subscribe({
-      next: (data) => {
+      next: (data: any) => {
         this.submittingForm = false
+        this.stateService.user = data;
         this.router.navigate(['/signup/ngo/success'])
       },
       error: (err) => {

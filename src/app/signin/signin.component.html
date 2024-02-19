@@ -27,17 +27,17 @@
           </div>
           <div class="fill-details">
             <div class="fill-details-text">Fill in your account details</div>
-            <input placeholder="E-mail" type="email" class="email"/>
-            <input type="password" placeholder="Password" class="password"/>
-
-            
-        
-            <div class="tnc">
-              <div class="terms-agreement">
-                By continuing, you agree to the CauseHarbors to the terms of service and privacy policy.
+            <form [formGroup]="signInForm" (ngSubmit)="signIn()">
+              <input formControlName="email" placeholder="E-mail" type="email" class="email"/>
+              <input formControlName="password" type="password" placeholder="Password" class="password"/>
+              <div class="tnc">
+                <div class="terms-agreement">
+                  By continuing, you agree to the CauseHarbors to the terms of service and privacy policy.
+                </div>
+                <button [disabled]="submittingForm" 
+                type="submit" class="signin">{{ !submittingForm ? "Sign In" : "Submitting" }}</button>
               </div>
-              <a routerLink="/sigin" class="signin">Sign In</a>
-            </div>
+            </form>
           </div>
         </div>
       </div>

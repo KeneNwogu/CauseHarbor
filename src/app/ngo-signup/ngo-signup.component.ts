@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ngo-signup',
@@ -9,10 +10,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NgoSignupComponent implements OnInit {
 
-  constructor(private readonly http: HttpClient) { }
+  constructor(private readonly http: HttpClient, private readonly router: Router) { }
 
   ngOnInit(): void {
   }
+
+  count = 0;
+
+  increaseCount(){ this.count++ }
 
   formLoading = false;
 
@@ -40,7 +45,7 @@ export class NgoSignupComponent implements OnInit {
     if(this.signUpForm.valid){
       this.formLoading = true;
       this.http.post('https://cause-harbour.onrender.com/api/v1/profile', {
-        name: this.signUpForm.get('user')?.value,
+        name: this.signUpForm.get('name')?.value,
         email: this.signUpForm.get('email')?.value,
         password: this.signUpForm.get('password')?.value,
         role: "organization"
@@ -48,6 +53,7 @@ export class NgoSignupComponent implements OnInit {
       .subscribe({ next: (data) => {
         console.log(data);
         this.formLoading = false;
+        this.router.navigate(['signup/ngo/code'], { queryParams: { email: this.signUpForm.get('email')?.value }})
       }, error: (error) => {
         const errorMessage = error.error.message;
         alert(errorMessage);

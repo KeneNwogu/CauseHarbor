@@ -1,88 +1,98 @@
 <div class="container">
-    <div class="wrapper">
-      <div class="column">
-        <div class="flex-column">
-          <div class="logo">
-            <img
-              loading="lazy"
-              src="assets/logo.svg"
-              class="img"
-            />
-            <div class="logo-name">CauseHarbor</div>
-          </div>
-          <img
-            loading="lazy"
-            src="assets/back-icon.svg"
-            class="img-2"
-          />
-          <div class="welcome-text">Let’s get to know you</div>
-          <div class="signin-text">Fill in your mission statement and tell us everything you are about </div>
+  <div class="wrapper">
+    <div class="column">
+      <div class="flex-column">
+        <div class="logo">
+          <img loading="lazy" src="assets/logo.svg" class="img" />
+          <div class="logo-name">CauseHarbor</div>
+        </div>
+        <img loading="lazy" src="assets/back-icon.svg" class="img-2" />
+        <div class="welcome-text">Let’s get to know you</div>
+        <div class="signin-text">
+          Fill in your mission statement and tell us everything you are about
         </div>
       </div>
-     
-      <div class="column-2">
-        <div class="column-wrapper">
-          <div class="no-account">
-            Already have an account? 
-            <a routerLink="/signup" style="font-weight: 700">Sign in</a>
-          </div>
-          <div class="fill-details">
-            <!-- <div class="fill-details-text">Fill in your verification code</div>
-        
-            <input type="text" style="height: 150px;" placeholder="Mission statement: Craft a brief and impactful mission statement that represents your organization's goals." class="password"/>
-            <input type="url" placeholder="Input a link to your organization's logo" class="password"/>
-            
-        
-            <div class="tnc">
-              <a routerLink="/sigin" class="signin">Next</a>
-            </div> -->
-            <!-- <div class="sdg">
-                <span>no poverty</span>
-                <span>Zero hunger</span>
-                <span>Good health and well being </span>
-                <span>Quality education</span>
-                <span>Gender equality</span>
-                <span>Clean water and sanitation</span>
-                <span>Affordable and clean energy</span>
-                <span>Decent work and Economic growth</span>
-                <span>Industry, Innovation and infrastructure</span>
-                <span>Reduced inequality</span>
-                <span>Sustainable cities and communities</span>
-                <span>Climate action</span>
-                <span>Responsible consumption and communities</span>
-                <span>Life below water</span>
-                <span>Life on land</span>
-                <span>Peace, justice and strong institutions</span>
-                <span>Partnership for the goals </span>
-            </div> -->
+    </div>
 
+    <div class="column-2">
+      <div class="column-wrapper">
+        <div class="no-account">
+          Already have an account?
+          <a routerLink="/signup" style="font-weight: 700">Sign in</a>
+        </div>
+        <div class="fill-details">
+          <div class="fill-details-text">
+            {{ formDescriptions[currentPage - 1] }}
+          </div>
+          <form [formGroup]="completeSignupForm">
+            <div *ngIf="currentPage === 1">
+              <input type="text" style="height: 150px;" 
+              formControlName="missionStatement"
+              placeholder="Mission statement: Craft a brief and impactful mission statement that represents your organization's goals." class="password"/>
+              <input type="file" placeholder="Input a link to your organization's logo" 
+              class="password" (change)="uploadOrganizationLogo($event)"/>
+            </div>
+              
+            <div class="sdg" *ngIf="currentPage === 2" style="margin-top: 20px; justify-content: center;">
+              <span *ngFor="let goal of goals" (click)="updateOrganizationGoals(goal)"
+              [class]="{'selected-goal': selectedOrganizationGoals.includes(goal)}">
+                {{ goal }}
+              </span>
+            </div>
+          </form>
+
+          <div class="tnc" *ngIf="currentPage < 3">
+            <button class="signin" (click)="incrementPage()" 
+            [disabled]="!completeSignupForm.valid">Next</button>
+          </div>
+
+          <div *ngIf="currentPage === 3">
             <div>
-        
-               <div>
-                <p style="font-weight: bolder; font-size: large; padding-bottom: 16px;">Terms and Conditions</p>
+              <p
+                style="
+                  font-weight: bolder;
+                  font-size: large;
+                  padding-bottom: 16px;
+                "
+              >
+                Terms and Conditions
+              </p>
 
-            Introduction<br/><br/>
-            Welcome to CauseHarbor! By accessing and using our platform, you agree to comply with and be bound by the following terms and conditions. Please read these terms carefully before using our services.<br/><br/>
-            1. Acceptance of Terms<br/>
-            By signing up and using CauseHarbor, you acknowledge that you have read, understood, and agree to be bound by these terms. If you do not agree with any part of these terms, you may not access or use our platform.<br/>
-            2. Use of the Platform<br/>
-            You must be at least 18 years old to use CauseHarbor.<br/>
-            You are responsible for maintaining the confidentiality of your account information and password.<br/>
-            You agree to use the platform for lawful purposes and in accordance with these terms.<br/>
-            3. User Accounts<br/>
-            NGOs and donors must provide accurate and complete information during the registration process.<br/>
-            You are solely responsible for the activity that occurs on your account.<br/>
-
-               </div>
-        
-            <div class="tnc">
-                <div class="terms-agreement">
-                    By clicking "Complete sign up", you agree to the Terms and Conditions.
-                  </div>
-              <a routerLink="/sigin" class="signin">Complete sign up</a>
+              Introduction<br /><br />
+              Welcome to CauseHarbor! By accessing and using our platform, you
+              agree to comply with and be bound by the following terms and
+              conditions. Please read these terms carefully before using our
+              services.<br /><br />
+              1. Acceptance of Terms<br />
+              By signing up and using CauseHarbor, you acknowledge that you have
+              read, understood, and agree to be bound by these terms. If you do
+              not agree with any part of these terms, you may not access or use
+              our platform.<br />
+              2. Use of the Platform<br />
+              You must be at least 18 years old to use CauseHarbor.<br />
+              You are responsible for maintaining the confidentiality of your
+              account information and password.<br />
+              You agree to use the platform for lawful purposes and in
+              accordance with these terms.<br />
+              3. User Accounts<br />
+              NGOs and donors must provide accurate and complete information
+              during the registration process.<br />
+              You are solely responsible for the activity that occurs on your
+              account.<br />
             </div>
+
+            <div class="tnc">
+              <div class="terms-agreement">
+                By clicking "Complete sign up", you agree to the Terms and
+                Conditions.
+              </div>
+              <button class="signin" (click)="completeSignup()" [disabled]="submittingForm">
+                {{ !submittingForm ? "Complete sign up" : "Submitting" }}
+              </button>
             </div>
           </div>
-          
+        </div>
+      </div>
     </div>
   </div>
+</div>

@@ -34,12 +34,17 @@
           </div>
           <div class="div-12">Fill in your verification code</div>
           <div class="div-13">
-            <div class="div-14"></div>
-            <div class="div-15"></div>
-            <div class="div-16"></div>
-            <div class="div-17"></div>
-            <div class="div-18"></div>
-            <div class="div-19"></div>
+            <div class="div-19" *ngFor="let code of [0, 1, 2, 3, 4, 5]; let i = index;">
+              <input 
+                type="text" style="width: 100%; height: 100%; 
+                border: transparent; border-radius: inherit; outline: none; text-align: center;" maxlength="1"
+                (input)="updateVerificationCode(i, $event)"
+                (keydown.backspace)="clearVerificationCode()"
+                [value]="currentCode[i] || ''"
+                [disabled]="i > this.currentCode.length || submittingForm"
+              >
+            </div>
+
           </div>
           <div class="div-20">Expires in 10 minutes</div>
           <div class="div-21">

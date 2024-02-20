@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AppStateService } from '../app-state.module';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'signin',
@@ -10,7 +11,10 @@ import { AppStateService } from '../app-state.module';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private readonly http: HttpClient, private readonly stateService: AppStateService) { }
+  constructor(private readonly http: HttpClient, 
+    private readonly route: ActivatedRoute,
+    private readonly router: Router,
+    private readonly stateService: AppStateService) { }
 
   signInForm = new FormGroup({
     email: new FormControl('', Validators.required),
@@ -29,6 +33,12 @@ export class SigninComponent implements OnInit {
         next: (data: any) => {
           this.submittingForm = false
           this.stateService.user = data;
+          if(this.route.snapshot.queryParams['redirect']){
+            this.router.navigate([this.route.snapshot.queryParams['redirect']])
+          }
+          else{
+            this.router.navigate(['/'])
+          }
         },
         error: (err) => {
           this.submittingForm = false

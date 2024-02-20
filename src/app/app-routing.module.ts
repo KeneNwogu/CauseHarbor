@@ -10,6 +10,7 @@ import { NgoSignupSuccessComponent } from './ngo-signup-success/ngo-signup-succe
 import { DonorLandingComponent } from './dashboard/donor/donor-landing/donor-landing.component';
 import { NgoSignupVerifyComponent } from './ngo-signup-verify/ngo-signup-verify.component';
 import { CreateCampaignComponent } from './dashboard/ngo/create-campaign/create-campaign.component';
+import { AuthGuard } from './app-auth-guard';
 
 
 const routes: Routes = [
@@ -23,10 +24,10 @@ const routes: Routes = [
   { path: 'signup/ngo/code', component: NgoSignupVerifyComponent },
   { path: 'signup/ngo/success', component: NgoSignupSuccessComponent },
   { path: 'donor/dashboard', component: DonorLandingComponent },
-  { path: 'ngo/dashboard/create-campaign', component: CreateCampaignComponent }
-
-  
-
+  {
+    path: 'ngo/dashboard/create-campaign', component: CreateCampaignComponent, canActivate: [AuthGuard],
+    data: { role: 'organization' }
+  }
 ];
 
 @NgModule({

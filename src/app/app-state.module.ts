@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 interface User{
     profile: {
@@ -28,16 +28,20 @@ interface User{
     providedIn: 'root'
 })
 export class AppStateService {
-    private readonly _user = new BehaviorSubject<User | null>(null);
-    readonly user$ = this._user.asObservable();
+    private readonly _user: BehaviorSubject<User | null>;
+    // readonly user$ = this._user.asObservable();
 
-    constructor() { }
+    constructor() { 
+        const initialState = JSON.parse(localStorage.getItem('cause-harbour:user') || 'null') || null;
+        this._user = new BehaviorSubject<any>(initialState)
+    }
 
     get user(): any {
-        return this.user$;
+        return this._user.asObservable();
     }
 
     set user(val: User | null) {
         this._user.next(val);
+        localStorage.setItem('cause-harbour:user', JSON.stringify(val));
     }
 }

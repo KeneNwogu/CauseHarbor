@@ -53,65 +53,74 @@
         </div>
       </div>
       <div class="div-21"></div>
-      <div class="div-22">
-        <div class="div-23">SDG</div>
-        <div class="div-24">
-          <div class="div-25">
-            <select style="width: 30vw;">
+      <form [formGroup]="createCampaignForm" (ngSubmit)="createCampaign()">
+        <div class="div-22">
+          <div class="div-23">SDG</div>
+          <div class="div-24">
+            <div class="div-25">
+              <select style="width: 30vw; outline: none; border: none;" formControlName="goals" multiple>
                 Select the SDG your campaign is targetted at
-                <option value="1">Zero Hunger</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="div-27">
-        <div class="div-28">Title of campaign</div>
-        <div class="div-29">
-          <input class="div-30" placeholder="Title of an amazing campaign"/>
-          <div class="div-31">
-            A good campaign starts with amazing narrations
-          </div>
-        </div>
-      </div>
-      <div class="div-32">
-        <div class="div-33">Goal</div>
-        <div class="div-34">
-          <div class="div-35">
-            <div class="div-36">
-              <img
-                loading="lazy"
-                src="assets/money.svg"
-                class="img-7"
-              />
-              <input style="outline: none;" type="number" class="div-37" placeholder="What is your target"/>
+                <option [value]="goal" *ngFor="let goal of goals">{{ goal }}</option>
+              </select>
             </div>
           </div>
-          <div class="div-38">
-            tell people the amount of money you would be needing
+        </div>
+        <div class="div-27">
+          <div class="div-28">Title of campaign</div>
+          <div class="div-29">
+            <input class="div-30" placeholder="Title of an amazing campaign" formControlName="title"/>
+            <div class="div-31">
+              A good campaign starts with amazing narrations
+            </div>
           </div>
         </div>
-      </div>
-      <div class="div-39">
-        <div class="div-40">
-          <div class="div-41">Story</div>
-          <div class="div-42">Tell people your reason</div>
-        </div>
-        <textarea  placeholder="What is your story behind this initiative"></textarea>
-      </div>
-      <div class="div-44">
-        <div class="div-45">
-          <div class="div-46">Picture or video cover</div>
-          <div class="div-47">
-            show people what you are about and tell
-            <br />
-            the world what you want to achieve
+        <div class="div-32">
+          <div class="div-33">Goal</div>
+          <div class="div-34">
+            <div class="div-35">
+              <div class="div-36">
+                <img
+                  loading="lazy"
+                  src="assets/money.svg"
+                  class="img-7"
+                />
+                <input style="outline: none;" type="number" class="div-37" 
+                placeholder="What is your target" formControlName="targetBudget">
+              </div>
+            </div>
+            <div class="div-38">
+              tell people the amount of money you would be needing
+            </div>
           </div>
         </div>
-        <div class="div-48">
-            <input placeholder="Input url to a media supporting your campaign" type="url"/>
+        <div class="div-39">
+          <div class="div-40">
+            <div class="div-41">Story</div>
+            <div class="div-42">Tell people your reason</div>
+          </div>
+          <textarea  placeholder="What is your story behind this initiative" formControlName="description"></textarea>
         </div>
-      </div>
-      <div class="div-51">
+        <div class="div-44">
+          <div class="div-45">
+            <div class="div-46">Picture or video cover</div>
+            <div class="div-47">
+              show people what you are about and tell
+              <br />
+              the world what you want to achieve
+            </div>
+          </div>
+          <div class="div-48">
+            <input formControlName="campaignImage" 
+            placeholder="Input url to a media supporting your campaign" 
+            type="file"
+            (change)="onImageChange($event)"
+            />
+          </div>
+        </div>
+        <button class="div-59" type="submit">Publish this campaign</button>
+      </form>
+    
+      <!-- <div class="div-51">
         <div class="div-52">
           <div class="div-53">URL</div>
           <div class="div-54">Create a URL for your campaign</div>
@@ -122,8 +131,7 @@
             <div class="div-58">Generate</div>
           </div>
         </div>
-      </div>
-      <div class="div-59">Publish this campaign</div>
+      </div> -->
     </div>
     <div class="div-60">
       <div class="div-61">

@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DonorLandingComponent } from './dashboard/donor/donor-landing/donor-landing.component';
 import { NgoSignupVerifyComponent } from './ngo-signup-verify/ngo-signup-verify.component';
 import { CreateCampaignComponent } from './dashboard/ngo/create-campaign/create-campaign.component';
+import { CampaignItemComponent } from './campaign-item/campaign-item.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CreateCampaignComponent } from './dashboard/ngo/create-campaign/create-
     NgoSignupSuccessComponent,
     DonorLandingComponent,
     NgoSignupVerifyComponent,
-    CreateCampaignComponent
+    CreateCampaignComponent,
+    CampaignItemComponent
   ],
   imports: [
     BrowserModule,

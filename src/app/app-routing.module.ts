@@ -23,7 +23,8 @@ const routes: Routes = [
   { path: 'ngo/verify', component: NgoMissionComponent },
   { path: 'signup/ngo/code', component: NgoSignupVerifyComponent },
   { path: 'signup/ngo/success', component: NgoSignupSuccessComponent },
-  { path: 'donor/dashboard', component: DonorLandingComponent },
+  { path: 'donor/dashboard', component: DonorLandingComponent, canActivate: [AuthGuard],
+    data: { role: 'donor' } },
   {
     path: 'ngo/dashboard/create-campaign', component: CreateCampaignComponent, canActivate: [AuthGuard],
     data: { role: 'organization' }

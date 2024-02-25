@@ -1,0 +1,8 @@
+node_modules
+uploads/*
+.env
+
+server.crt
+server.key
+dist
+prisma/migrations/

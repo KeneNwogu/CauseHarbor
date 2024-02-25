@@ -1,27 +1,86 @@
-# CauseHarbor
+## READme: Running the CauseHarbour project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
+This document provides instructions on how to set up the CauseHarbour api and client comprised of two separate sub-projects: a backend and a frontend. 
 
-## Development server
+**Prerequisites:**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* Node.js and npm (or yarn) installed on your system.
+* A code editor or IDE of your choice.
+* Basic understanding of command-line interface (CLI).
 
-## Code scaffolding
+**Project Structure:**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+cause-harbour/
+├── backend/
+│   ├── package.json
+│   ├── ... (backend source code files)
+│   └── ... (backend specific configurations)
+└── frontend/
+    ├── package.json
+    ├── ... (frontend source code files)
+    └── ... (frontend specific configurations)
+```
 
-## Build
+**Instructions:**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. **Clone or Download the Project:**
 
-## Running unit tests
+   Open a terminal window and navigate to the directory where you want to work on the project. Then, use `git clone` or download the entire project repository to your local system.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. **Navigate to the Backend Project:**
 
-## Running end-to-end tests
+   ```bash
+   cd your-project/backend
+   ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+3. **Install Backend Dependencies:**
 
-## Further help
+   Run the following command to install all the necessary dependencies for the backend project as listed in the `package.json` file:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   ```bash
+   npm install
+   ```
+
+   (Alternatively, if your project uses yarn, use the command `yarn install` instead)
+
+4. **Run the Backend Development Server:**
+
+   The Backend project for Cause Harbour is run with the following command:
+
+   ```bash
+   npm run dev
+   ```
+
+5. **Navigate to the Frontend Project:**
+
+   Once the backend server is running, switch directories to the frontend project:
+
+   ```bash
+   cd ../frontend
+   ```
+
+6. **Install Frontend Dependencies:**
+
+   Similar to the backend, install the frontend project's dependencies using:
+
+   ```bash
+   npm install
+   ```
+
+7. **Run the Frontend Development Server:**
+
+   The command to run the Angular development server is:
+
+   ```bash
+   npm run start
+   ```
+
+8. **Access the Application:**
+
+   The application should be accessible in your web browser, typically at `http://localhost:4200`.
+
+**Additional Notes:**
+
+* Depending on your project setup, you might need to configure the frontend project to communicate with the backend server at its specific URL (e.g., `http://localhost:3000` for a backend server running on port 5000). Refer to your project's documentation for specific configuration instructions.
+* This guide provides a general overview of the process. Specific commands and configurations may differ based on your chosen frameworks and project setup. 

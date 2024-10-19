@@ -1,5 +1,5 @@
 import router from ".";
-import { createCampaign, createOrganization, listCampaigns, listCampaignsForOrganization } from "../controllers/organization.controller";
+import { createCampaign, createOrganization, getCampaignDetails, listCampaigns, listCampaignsForOrganization } from "../controllers/organization.controller";
 import { auth } from "../middlewares/auth";
 import upload from "../middlewares/multer";
 // import { auth } from "../middlewares/auth";
@@ -35,7 +35,12 @@ export default (router: Router) => {
     )
 
     router.get(
-        "/api/v1/campaigns/:campaignId/donations",
+        "/api/v1/campaigns/:campaignId",
+        getCampaignDetails
+    )
+
+    router.get(
+        "/api/v1/organizations/:organizationId/campaigns",
         listCampaignsForOrganization
     )
 };

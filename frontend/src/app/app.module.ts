@@ -24,6 +24,8 @@ import { DonorLandingComponent } from './dashboard/donor/donor-landing/donor-lan
 import { NgoSignupVerifyComponent } from './ngo-signup-verify/ngo-signup-verify.component';
 import { CreateCampaignComponent } from './dashboard/ngo/create-campaign/create-campaign.component';
 import { CampaignItemComponent } from './campaign-item/campaign-item.component';
+import { CampaignComponent } from './dashboard/donor/campaign/campaign.component';
+import { PaymentPopupComponent } from './dashboard/donor/payment-popup/payment-popup.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { CampaignItemComponent } from './campaign-item/campaign-item.component';
     DonorLandingComponent,
     NgoSignupVerifyComponent,
     CreateCampaignComponent,
-    CampaignItemComponent
+    CampaignItemComponent,
+    CampaignComponent,
+    PaymentPopupComponent
   ],
   imports: [
     BrowserModule,

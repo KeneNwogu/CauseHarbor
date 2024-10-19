@@ -6,6 +6,10 @@ export const createOrganization = async (input: any) => {
     return await OrganizationModel.create({ ...input, profile: new Types.ObjectId(input.profile) });
 };
 
+export const getOrganizationById = async (id: string | Types.ObjectId) => {
+    return await OrganizationModel.findById(id);
+}
+
 export const getOrganizationByProfile = async (profileId: string | Types.ObjectId, raiseException=true) => {
     const organization = await OrganizationModel.findOne({ profile: new Types.ObjectId(profileId) });
     if (!organization && raiseException) 
@@ -25,10 +29,16 @@ export const getCampaigns = async () => {
     return await CampaignModel.find().populate({ path: 'organization', populate: { path: 'profile' } });
 }
 
+export const getCampaignById = async (id: string | Types.ObjectId) => {
+    return await CampaignModel.findById(id).populate({ path: 'organization', populate: { path: 'profile' } });
+}
+
 export default {
     createOrganization,
+    getOrganizationById,
     getOrganizationByProfile,
     createCampaign,
     getCampaignsForOrganization,
-    getCampaigns
+    getCampaigns,
+    getCampaignById
 };

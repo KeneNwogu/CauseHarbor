@@ -11,6 +11,7 @@ import { DonorLandingComponent } from './dashboard/donor/donor-landing/donor-lan
 import { NgoSignupVerifyComponent } from './ngo-signup-verify/ngo-signup-verify.component';
 import { CreateCampaignComponent } from './dashboard/ngo/create-campaign/create-campaign.component';
 import { AuthGuard } from './app-auth-guard';
+import { CampaignComponent } from './dashboard/donor/campaign/campaign.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
   {
     path: 'ngo/dashboard/create-campaign', component: CreateCampaignComponent, canActivate: [AuthGuard],
     data: { role: 'organization' }
-  }
+  },
+  { path: 'campaigns/:campaignId', component: CampaignComponent }
 ];
 
 @NgModule({

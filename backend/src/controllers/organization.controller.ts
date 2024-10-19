@@ -7,6 +7,7 @@ import profileService from '../services/profile.service';
 import { Readable } from 'stream';
 import cloudinary, { uploadImage } from '../utils/cloudinary';
 import { dateToUTCDate } from '../utils/date';
+import { NotFoundError } from '../errors/not-found-error';
 
 // GET /organizations
 export const listOrganizations = async (req: Request, res: Response) => {
@@ -86,8 +87,23 @@ export const listCampaigns = async (req: Request, res: Response) => {
 }
 
 export const listCampaignsForOrganization = async (req: Request, res: Response) => {
-    const organization = await organizationService.getOrganizationByProfile(req.user.id);
+    let organization = null
+    if(req.params.organizationId){
+        organization = await organizationService.getOrganizationById(req.user.id);
+    }
+
+    else {
+        organization = await organizationService.getOrganizationByProfile(req.user.id);
+    }
+
+    if(!organization) throw new NotFoundError("no organization was found");
 
     const campaigns = await organizationService.getCampaignsForOrganization(organization._id);
     return res.json({ campaigns });
+}
+
+export const getCampaignDetails = async (req: Request, res: Response) => {
+    const campaign = await organizationService.getCampaignById(req.params.campaignId);
+    if(!campaign) throw new NotFoundError("no campaign found");
+    return res.json({ campaign })
 }

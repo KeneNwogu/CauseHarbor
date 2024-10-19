@@ -54,7 +54,8 @@ export const verifyDonation = async (trxRef: string) => {
 }
 
 export const getCampaignById = async (id: string) => {
-    return await CampaignModel.findById(id);
+    return await CampaignModel.findById(id)
+    .populate({ path: 'organization', populate: { path: 'profile' } });
 }
 
 export const getDonationsByDonor = async (donor: Types.ObjectId) => {

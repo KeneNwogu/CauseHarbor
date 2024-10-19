@@ -1,0 +1,192 @@
+<div class="div" style="background-color: #6C6C6C;">
+    <div class="div-2">
+      <div class="div-3">
+        <div class="div-4">
+          <div class="div-5">
+            <div class="div-6">
+              <div class="div-7">
+                
+                <a class="div-8" href="/campaigns">Search Campaigns</a>
+              </div>
+            </div>
+            <a href="/" class="div-9">How it works</a>
+          </div>
+          <div class="div-10">
+            <img
+              loading="lazy"
+              src="assets/logo.svg"
+              class="img-2"
+            />
+            <div class="div-11">CauseHarbor</div>
+          </div>
+        </div>
+        <div class="div-12">
+          <div class="div-13">Your donations</div>
+          <div class="div-14">
+            <img
+              loading="lazy"
+              srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/007af5a7b4461497d933089809e3ed1afa73141cef915b353a61dcea110588b1?apiKey=11ca6ebf910046a3a6396a4c8195d11d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/007af5a7b4461497d933089809e3ed1afa73141cef915b353a61dcea110588b1?apiKey=11ca6ebf910046a3a6396a4c8195d11d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/007af5a7b4461497d933089809e3ed1afa73141cef915b353a61dcea110588b1?apiKey=11ca6ebf910046a3a6396a4c8195d11d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/007af5a7b4461497d933089809e3ed1afa73141cef915b353a61dcea110588b1?apiKey=11ca6ebf910046a3a6396a4c8195d11d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/007af5a7b4461497d933089809e3ed1afa73141cef915b353a61dcea110588b1?apiKey=11ca6ebf910046a3a6396a4c8195d11d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/007af5a7b4461497d933089809e3ed1afa73141cef915b353a61dcea110588b1?apiKey=11ca6ebf910046a3a6396a4c8195d11d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/007af5a7b4461497d933089809e3ed1afa73141cef915b353a61dcea110588b1?apiKey=11ca6ebf910046a3a6396a4c8195d11d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/007af5a7b4461497d933089809e3ed1afa73141cef915b353a61dcea110588b1?apiKey=11ca6ebf910046a3a6396a4c8195d11d&"
+              class="img-3"
+            />
+            <div class="div-15">Okubote</div>
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/14bf85e0a953094937043ca0348ccbdce05f5af4bc79603a056912d2b740deca?apiKey=11ca6ebf910046a3a6396a4c8195d11d&"
+              class="img-4"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <payment-popup *ngIf="showPaymentPopup"></payment-popup>
+
+    <div class="div-16">
+      <div class="div-17" style="background-color: #6C6C6C;">
+        <a class="div-18" href="/donor/dashboard" style="background-color: #6C6C6C;">
+            <span class="material-symbols-outlined img-5">
+                home
+                </span>
+          <div class="div-19">Dashboard</div>
+            </a>
+        <a class="div-20" href="/campaigns">
+            <span class="material-symbols-outlined img-6">
+                search
+                </span>
+          <div class="div-21">Explore campaigns</div>
+            </a>
+        <a class="div-22" href="/donor/settings">
+            <span class="material-symbols-outlined img-7">
+                settings
+                </span>
+          <div class="div-23">Settings</div>
+            </a>
+      </div>
+     
+      <div class="div-24" *ngIf="campaign && !loadingCampaign">
+        <a href="/dashboard/donor">
+        <img
+            loading="lazy"
+            src="assets/back-icon.svg"
+            class="img-2"
+          />
+        </a>
+        <div class="div-43">
+          <img
+            loading="lazy"
+            [srcset]="campaign.organization.organizationLogo"
+            class="img-12"
+          />
+          <div class="div-44">
+            <div class="div-45">
+              <div class="div-46">{{ campaign.organization.profile.name }}</div>
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/1575db2d5c5be868a3b533d8bf6dfefe9f8a6986ef7f7640a967cefd6a4a33f3?apiKey=11ca6ebf910046a3a6396a4c8195d11d&"
+                class="img-13"
+              />
+            </div>
+            <div class="div-47">
+              {{ campaign.title }}
+            </div>
+            <div class="div-48">
+                {{ campaign.description }}
+              <br />
+              <br />
+            </div>
+            <img
+              loading="lazy"
+              [srcset]="campaign.campaignImage"
+              class="img-14"
+            /> <!--substitute link here with the actual camapaign link-->
+            <div class="div-49">
+              <div class="div-50">
+                <button class="div-51" (click)="displayPaymentPopup()">Make a donation</button>
+                <div class="div-52">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/6d5e414b79373fc37d59c6748e8d4f53fa7caff90e51889aa060495364e19106?apiKey=11ca6ebf910046a3a6396a4c8195d11d&"
+                    class="img-15"
+                  /> <!--substitute link here with the actual camapaign link-->
+                  <div class="div-53">{{ campaign.targetBudget }} Budget</div>
+                </div>
+              </div>
+              <div class="div-54">
+                <div class="div-55">Follow our journey</div>
+                <div class="div-56">
+                  <a href="put ngo link here" class="fa-brands fa-facebook-f sm"></a>
+                  <a href="put ngo link here" class="fa-brands fa-instagram sm"></a>
+                  <a href="put ngo link here" class="fa-brands fa-linkedin-in sm"></a>
+                  <a href="put ngo link here" class="fa-brands fa-x-twitter sm"></a>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div>
+      <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/c1b42b33bfafebcf949a87694f7437d9515cf21a27b3647760a9f6536c873b5f?apiKey=11ca6ebf910046a3a6396a4c8195d11d&"
+        class="img-35"
+      />
+    </div>
+    <div class="div-86">
+      <div class="div-87">
+        <div class="column-4">
+          <div class="div-88">
+            <div class="div-89">
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/f33efdad0f01ba12329942390ae4e85a3bb0cd6b6508a6a0935baa69e094c97c?apiKey=11ca6ebf910046a3a6396a4c8195d11d&"
+                class="img-36"
+              />
+              <div class="div-90">CauseHarbor</div>
+            </div>
+            <div class="div-91">Stay Connected and contact us</div>
+            <div class="div-92">
+              <i class="fa-brands fa-facebook fa-2xl"></i>
+              <i class="fa-brands fa-square-instagram fa-2xl"></i>
+              <i class="fa-brands fa-linkedin fa-2xl"></i>
+              <i class="fa-brands fa-square-x-twitter fa-2xl"></i>
+            </div>
+            <div class="div-93">© 2024, All rights reserved</div>
+          </div>
+        </div>
+        <div class="column-5">
+          <div class="div-94">
+            <div class="div-95">
+              <div class="column">
+                <div class="div-96">
+                  <div class="div-97">Navigation</div>
+                  <a href="/donor/dashboard" class="div-98">Dashboard</a>
+                  <a href="/campaigns" class="div-99">Explore campaigns</a>
+                  <a href="/settings" class="div-100">Setttings</a>
+                </div>
+              </div>
+              <div class="column-6">
+                <div class="div-101">
+                  <div class="div-102">About</div>
+                  <div class="div-103">What we do</div>
+                  <div class="div-104">Meet the team</div>
+                  <div class="div-105">Careers</div>
+                </div>
+              </div>
+              <div class="column-7">
+                <div class="div-106">
+                  <div class="div-107">Company Info</div>
+                  <div class="div-108">
+                    tel. +234 90 7676 4199
+                    <br />
+                    Info&#64;causeharbor.com
+                    <br />
+                    www.causeharbor.com
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

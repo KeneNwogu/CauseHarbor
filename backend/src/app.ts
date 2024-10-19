@@ -6,8 +6,8 @@ import cors from "cors";
 import router from "./router";
 import upload from "./middlewares/multer";
 import multer from "multer";
-import { H, Handlers } from '@highlight-run/node'
-import { highlightConfig } from './highlight'
+// import { H, Handlers } from '@highlight-run/node'
+// import { highlightConfig } from './highlight'
 
 // don't remove this, it streams the errors from the application to the error handler
 import 'express-async-errors'
@@ -49,7 +49,7 @@ app.get("/health", (req: Request, res: Response) =>
     res.status(200).send("Good health").end()
 );
 
-app.use(Handlers.middleware(highlightConfig));
+// app.use(Handlers.middleware(highlightConfig));
 // ERROR HANDLER MUST BE LAST!!!
 app.use(errorHandler);
 
